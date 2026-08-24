@@ -1,3 +1,9 @@
+from pathlib import Path
+import pandas as pd
+import streamlit as st
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_PATH = BASE_DIR / "weather_analytics_dataset.csv"
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -24,7 +30,7 @@ st.set_page_config(
 @st.cache_data
 def load_data():
 
-    df = pd.read_csv("weather_analytics_dataset.csv")
+   df = pd.read_csv(DATA_PATH)
 
     df["Date"] = pd.to_datetime(df["Date"])
 
